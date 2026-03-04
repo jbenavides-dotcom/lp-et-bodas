@@ -39,25 +39,24 @@ export default function Hero() {
         {/* Location badge */}
         <div className="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold px-4 py-2 rounded-full text-sm font-medium tracking-widest uppercase mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-          Finca Cafetera · Zipacón, Cundinamarca
+          Destination Wedding
         </div>
 
         {/* H1 */}
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-          Tu boda en una{' '}
-          <span className="text-brand-gold italic">finca cafetera</span>{' '}
-          de clase mundial
+          Celebra tu matrimonio{' '}
+          <span className="text-brand-gold italic">en medio del bosque y el café</span>
         </h1>
 
         {/* H2 italic */}
         <h2 className="font-serif text-xl sm:text-2xl italic text-brand-beige mb-6 font-light">
-          Bodas únicas · Zipacón, Cundinamarca · A 90 minutos de Bogotá
+          En una finca cafetera reconocida mundialmente
         </h2>
 
         {/* Subheadline */}
         <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Celebra el día más especial de tu vida en la finca cafetera #14 del mundo según Taste Atlas 2025.
-          Ceremonia al aire libre, gastronomía de origen y una naturaleza que hace el trabajo sola.
+          Rodeados de montañas, cafetales y bosque de niebla, a solo 90 minutos de Bogotá.
+          Un escenario natural e íntimo para celebrar tu historia con calma, conexión y propósito.
         </p>
 
         {/* Trust chips */}

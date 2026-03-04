@@ -90,34 +90,34 @@ export const PERFECT_FOR: PerfectForItem[] = [
 // ─── Experiences ──────────────────────────────────────────────────────────────
 export const EXPERIENCES: Experience[] = [
   {
-    icon: '🌿',
-    title: 'Ceremonia al aire libre',
-    description: 'Di "sí, acepto" rodeado de cafetales, montañas y bosque de niebla. Un escenario que ningún salón puede replicar.',
+    icon: '💍',
+    title: 'Ceremonia al Aire Libre',
+    description: 'Di "sí, acepto" rodeado de cafetales, montañas y bosque de niebla.',
   },
   {
     icon: '🥂',
-    title: 'Cóctel al atardecer',
-    description: 'Brinda entre cafetales con coctelería artesanal y música en vivo, mientras la montaña se tiñe de dorado.',
+    title: 'Recepción & Cóctel',
+    description: 'Comparte con tus invitados en espacios integrados al paisaje, con vistas abiertas y atmósfera natural.',
   },
   {
     icon: '🍽️',
-    title: 'Gastronomía de origen',
-    description: 'Un banquete inspirado en ingredientes frescos y locales, servido en espacios integrados con el entorno natural.',
+    title: 'Gastronomía de Origen',
+    description: 'Propuesta elaborada con ingredientes frescos y locales, inspirada en nuestra huerta y el territorio.',
+  },
+  {
+    icon: '🎵',
+    title: 'Música en Vivo & DJ',
+    description: 'Desde un atardecer acústico hasta una celebración vibrante bajo las estrellas.',
   },
   {
     icon: '🛖',
-    title: 'Alojamiento para invitados',
+    title: 'Alojamiento entre Cafetales',
     description: 'Cabañas privadas para que tus invitados vivan la experiencia completa de fin de semana.',
   },
   {
-    icon: '☕',
-    title: 'Experiencia cafetera única',
-    description: 'Café de especialidad Gesha, Sidra y Mokka como parte de la celebración. La finca #14 del mundo según Taste Atlas 2025.',
-  },
-  {
     icon: '✨',
-    title: 'Ambientación personalizada',
-    description: 'Cada detalle se diseña en armonía con el entorno y la esencia de tu historia de amor.',
+    title: 'Ambientación Personalizada',
+    description: 'Cada detalle se diseña en armonía con el entorno y la esencia de tu historia.',
   },
 ];
 

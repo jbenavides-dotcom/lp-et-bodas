@@ -317,15 +317,15 @@ function ExperiencesSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-brand-pink font-semibold tracking-widest uppercase text-sm mb-3">
-            Todo en un solo lugar
+            La Experiencia
           </p>
           <h2
             id="experiencias-titulo"
             className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3"
           >
-            La experiencia de tu matrimonio
+            Una celebración pensada para sentirse, no solo vivirse
           </h2>
-          <p className="text-gray-500 text-lg">Cada momento fluye en armonía con la naturaleza:</p>
+          <p className="text-gray-500 text-lg">Diseñamos contigo cada momento para que vivas una celebración íntima, auténtica y sin preocupaciones.</p>
         </div>
 
         {/* Experience cards grid */}
@@ -356,16 +356,16 @@ function ExperiencesSection() {
           <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 to-transparent flex items-center">
             <div className="p-8 max-w-lg">
               <p className="text-brand-gold font-semibold text-sm uppercase tracking-widest mb-3">
-                Una finca de clase mundial para tu día más especial
+                Un escenario natural e íntimo
               </p>
               <p className="font-serif text-white text-xl font-bold leading-snug mb-3">
-                La Palma &amp; El Tucán no es un salón de eventos.
+                Tu celebración en armonía con la naturaleza
               </p>
               <p className="text-white/80 text-sm leading-relaxed mb-2">
-                Es una finca cafetera activa reconocida internacionalmente, donde el café, la naturaleza y la arquitectura en madera crean un escenario único en Colombia.
+                Rincones entre cafetales, montañas y bosque de niebla donde cada celebración se vive en armonía con el entorno.
               </p>
               <p className="text-white/80 text-sm leading-relaxed italic">
-                Casarte aquí es vivir esa historia desde adentro.
+                Un lugar diferente para una historia única.
               </p>
             </div>
           </div>
@@ -381,20 +381,19 @@ function ReviewsSection() {
 
   const REVIEWS = [
     {
-      text: 'Nunca imaginamos encontrar un lugar tan especial tan cerca de Bogotá. La ceremonia entre los cafetales fue mágica. Nuestros invitados todavía hablan de esa boda.',
+      text: 'Fue el matrimonio de nuestros sueños. Las montañas, los cafetales, el atardecer... todo fue absolutamente mágico. Nuestros invitados aún hablan de esa noche.',
       stars: 5,
+      label: 'Boda para 35 invitados',
     },
     {
-      text: 'La combinación de naturaleza, arquitectura en madera y el café de especialidad hicieron nuestra boda única en Colombia. Un lugar que habla por sí solo.',
+      text: 'Elegimos La Palma & El Tucán porque queríamos algo diferente, y superó todas nuestras expectativas. La comida, la decoración, el servicio... cada detalle fue perfecto.',
       stars: 5,
+      label: 'Boda para 30 invitados',
     },
     {
-      text: 'El equipo de La Palma & El Tucán hizo que todo fuera perfecto. La gastronomía, el espacio, el atardecer desde los cafetales... fue exactamente lo que soñamos.',
+      text: 'Nuestros invitados llegaron desde Bogotá y quedaron impresionados con el lugar. Las cabañas entre cafetales, la ceremonia al aire libre, la fiesta bajo las estrellas. Inolvidable.',
       stars: 5,
-    },
-    {
-      text: 'Queríamos una boda diferente, íntima y con significado. La finca nos dio eso y mucho más. El café de especialidad en la recepción fue un detalle que enamoró a todos.',
-      stars: 5,
+      label: 'Destination wedding',
     },
   ];
 
@@ -408,13 +407,13 @@ function ReviewsSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-3">
-            Lo que dicen las parejas
+            Testimonios
           </p>
           <h2
             id="resenas-titulo"
             className="font-serif text-3xl sm:text-4xl font-bold text-white"
           >
-            Bodas reales. Momentos reales.
+            Historias que comenzaron entre cafetales
           </h2>
           {/* Aggregate rating */}
           <div className="flex items-center justify-center gap-2 mt-4">
@@ -430,8 +429,13 @@ function ReviewsSection() {
           </div>
         </div>
 
+        {/* Subtitle */}
+        <p className="text-center text-white/50 text-base mt-4 mb-14 max-w-xl mx-auto">
+          Parejas que celebraron en La Palma &amp; El Tucán y vivieron una experiencia inolvidable.
+        </p>
+
         {/* Reviews grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {REVIEWS.map((review, i) => (
             <article
               key={i}
@@ -449,6 +453,12 @@ function ReviewsSection() {
               <p className="text-white/80 text-sm leading-relaxed flex-1 italic">
                 "{review.text}"
               </p>
+              {/* Label */}
+              {review.label && (
+                <p className="text-brand-gold/70 text-xs font-medium uppercase tracking-wide">
+                  {review.label}
+                </p>
+              )}
             </article>
           ))}
         </div>
@@ -745,18 +755,18 @@ function CtaFinal() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-brand-pink/20 border border-brand-pink/40 text-brand-pink px-4 py-2 rounded-full text-sm font-medium tracking-wide mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
-          Agenda limitada
+          Fechas Limitadas
         </div>
 
         <h2
           id="cta-titulo"
           className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4"
         >
-          Cotiza tu boda en minutos
+          Hagamos realidad el matrimonio de sus sueños
         </h2>
 
         <p className="text-white/70 text-base mb-12">
-          Así de sencillo es comenzar a planear el día más especial de tu vida.
+          Cada matrimonio en La Palma &amp; El Tucán es una experiencia única. Cuéntanos su visión y diseñamos la celebración perfecta.
         </p>
 
         {/* Steps */}
@@ -819,7 +829,7 @@ function Footer() {
           <div>
             <Logo variant="light" size="lg" />
             <p className="text-white/50 text-sm mt-4 leading-relaxed max-w-xs">
-              Finca cafetera boutique a 90 minutos de Bogotá. El escenario natural ideal para bodas únicas e irrepetibles.
+              Matrimonios en una finca cafetera galardonada internacionalmente. Zipacón, Cundinamarca, a 90 minutos de Bogotá.
             </p>
           </div>
 

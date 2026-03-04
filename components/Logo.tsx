@@ -18,7 +18,7 @@ export default function Logo({ size = 'md' }: LogoProps) {
         <span className="text-brand-gold">EL TUCÁN</span>
       </span>
       <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-brand-pink font-bold">
-        Bodas & Matrimonios
+        Matrimonios
       </span>
     </div>
   );
