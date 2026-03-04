@@ -78,7 +78,7 @@ export default function Navbar() {
             onClick={() => trackAvailabilityClick('navbar')}
             className="bg-brand-pink text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-pink/90 transition-all duration-200 hover:shadow-lg hover:shadow-brand-pink/30 hover:-translate-y-0.5"
           >
-            Ver disponibilidad
+            Cotizar
           </a>
         </nav>
 
@@ -131,7 +131,7 @@ export default function Navbar() {
             }}
             className="bg-brand-pink text-white px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-brand-pink/90 transition-all duration-200 mt-4"
           >
-            Ver disponibilidad
+            Cotizar
           </a>
         </nav>
       </div>
