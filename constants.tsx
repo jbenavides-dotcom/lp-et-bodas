@@ -36,7 +36,7 @@ export const ASSETS = {
 export const WHATSAPP_URL =
   'https://wa.me/573189565617?text=Hola%2C%20quiero%20cotizar%20mi%20matrimonio%20en%20La%20Palma%20%26%20El%20Tuc%C3%A1n';
 export const CLOUDBEDS_URL = WHATSAPP_URL; // Para bodas el CTA principal es WhatsApp
-export const EMAIL = 'reservas@lapalmayeltucan.com';
+export const EMAIL = 'reservations@lapalmayeltucan.com';
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const NAV_LINKS: NavLink[] = [
@@ -72,7 +72,7 @@ export const STATS: Stat[] = [
 
 // ─── Cabin Features (wedding inclusions) ──────────────────────────────────────
 export const CABIN_FEATURES: CabinFeature[] = [
-  { text: 'Ceremonia al aire libre — Escenarios naturales con vista a montañas y cafetales, donde el paisaje es parte del "sí, acepto".' },
+  { text: 'Ceremonia íntima — Escenarios naturales con vista a montañas y cafetales, donde el paisaje es parte del "sí, acepto".' },
   { text: 'Recepción hasta 40 personas — Espacios íntimos que permiten compartir con calma y cercanía.' },
   { text: 'Música en vivo & DJ — Desde un atardecer acústico hasta una celebración bajo las estrellas.' },
   { text: 'Gastronomía de origen — Propuesta elaborada con ingredientes frescos y locales, inspirada en nuestra huerta.' },
@@ -156,7 +156,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: '¿A cuánto está desde Bogotá?',
     answer:
-      'A 90 minutos en carro. Ruta sencilla: Bogotá → Facatativá → Zipacón, Cundinamarca. Sin vías difíciles ni necesidad de 4x4. Perfecto para que tus invitados lleguen sin estrés.',
+      'A 90 minutos en carro. Ruta sencilla: Bogotá → Zipacón → Hotel. Perfecto para que tus invitados lleguen a tiempo.',
   },
   {
     question: '¿Hay alojamiento para los invitados?',
@@ -166,6 +166,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: '¿Cómo solicito una cotización?',
     answer:
-      'Escríbenos por WhatsApp al +57 318 956 5617 o al correo reservas@lapalmayeltucan.com. El equipo responde en minutos y agenda una visita o videollamada para conocer tu visión y preparar una propuesta personalizada.',
+      'Escríbenos por WhatsApp al +57 318 956 5617 o al correo reservations@lapalmayeltucan.com. El equipo responde en minutos y agenda una visita o videollamada para conocer tu visión y preparar una propuesta personalizada.',
   },
 ];
