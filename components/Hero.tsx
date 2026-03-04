@@ -44,13 +44,13 @@ export default function Hero() {
 
         {/* H1 */}
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-          Celebra tu{' '}
-          <span className="text-brand-gold italic">matrimonio</span>
+          Celebra tu matrimonio<br />
+          <span className="text-brand-gold italic">en medio del bosque y el café</span>
         </h1>
 
         {/* H2 italic */}
         <h2 className="font-serif text-xl sm:text-2xl italic text-brand-beige mb-6 font-light">
-          En medio del bosque y el café · En una finca cafetera reconocida mundialmente
+          En una finca cafetera reconocida mundialmente
         </h2>
 
         {/* Subheadline */}
