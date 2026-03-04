@@ -326,28 +326,39 @@ function ExperiencesSection() {
           <p className="text-gray-500 text-lg">Cada momento fluye en armonía con la naturaleza, creando una celebración auténtica e inolvidable.</p>
         </div>
 
-        {/* Journey steps */}
-        <div className="max-w-3xl mx-auto space-y-8">
+        {/* Journey steps with photos */}
+        <div className="space-y-12">
           {[
-            { number: '01', title: 'Preparativos entre cafetales', description: 'Comienza el día en cabañas privadas rodeadas de bosque y montaña. Calma, luz natural y la emoción compartida antes del gran momento.' },
-            { number: '02', title: 'La ceremonia', description: 'Al aire libre, con el paisaje como testigo y el sonido del bosque como banda sonora. Un escenario que ningún salón puede replicar.' },
-            { number: '03', title: 'Cóctel al atardecer', description: 'Brinda entre cafetales con coctelería artesanal y música en vivo, mientras la montaña se tiñe de dorado.' },
-            { number: '04', title: 'Cena de origen', description: 'Un banquete inspirado en ingredientes frescos y locales, servido en espacios que se integran con el entorno natural.' },
-            { number: '05', title: 'Celebración & Recuerdos', description: 'Risas, abrazos y celebración en un ambiente íntimo, donde cada recuerdo se vive sin prisa.' },
+            { number: '01', title: 'Preparativos entre cafetales', description: 'Comienza el día en cabañas privadas rodeadas de bosque y montaña. Calma, luz natural y la emoción compartida antes del gran momento.', image: ASSETS.CHAMPAGNE, alt: 'Preparativos del día de la boda' },
+            { number: '02', title: 'La ceremonia', description: 'Al aire libre, con el paisaje como testigo y el sonido del bosque como banda sonora. Un escenario que ningún salón puede replicar.', image: ASSETS.VOTOS, alt: 'Ceremonia al aire libre entre cafetales' },
+            { number: '03', title: 'Cóctel al atardecer', description: 'Brinda entre cafetales con coctelería artesanal y música en vivo, mientras la montaña se tiñe de dorado.', image: ASSETS.ABRAZO_DORADA, alt: 'Cóctel al atardecer en la finca' },
+            { number: '04', title: 'Cena de origen', description: 'Un banquete inspirado en ingredientes frescos y locales, servido en espacios que se integran con el entorno natural.', image: ASSETS.MESA_RECEPCION, alt: 'Cena farm-to-table en la recepción' },
+            { number: '05', title: 'Celebración & Recuerdos', description: 'Risas, abrazos y celebración en un ambiente íntimo, donde cada recuerdo se vive sin prisa.', image: ASSETS.SALIDA_CONFETI, alt: 'Celebración con confeti' },
           ].map((step, i) => (
             <div
               key={step.number}
-              className="flex gap-6 items-start group"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className={`grid md:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}
             >
-              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-brand-pink/10 border-2 border-brand-pink/30 flex items-center justify-center group-hover:bg-brand-pink group-hover:border-brand-pink transition-all duration-300">
-                <span className="font-serif text-lg font-bold text-brand-pink group-hover:text-white transition-colors duration-300">{step.number}</span>
+              {/* Photo */}
+              <div className={`rounded-2xl overflow-hidden shadow-lg ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+                <img
+                  src={step.image}
+                  alt={step.alt}
+                  className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
-              <div>
-                <h3 className="font-serif text-xl font-semibold text-brand-dark mb-1 group-hover:text-brand-pink transition-colors duration-200">
-                  {step.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+              {/* Text */}
+              <div className={`flex gap-5 items-start ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-brand-pink flex items-center justify-center shadow-lg shadow-brand-pink/30">
+                  <span className="font-serif text-lg font-bold text-white">{step.number}</span>
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-brand-dark mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed">{step.description}</p>
+                </div>
               </div>
             </div>
           ))}
