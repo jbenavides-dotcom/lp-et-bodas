@@ -330,7 +330,7 @@ function ExperiencesSection() {
         <div className="space-y-12">
           {[
             { number: '01', title: 'Preparativos entre cafetales', description: 'Comienza el día en cabañas privadas rodeadas de bosque y montaña. Calma, luz natural y la emoción compartida antes del gran momento.', image: ASSETS.CHAMPAGNE, alt: 'Preparativos del día de la boda' },
-            { number: '02', title: 'La ceremonia', description: 'Al aire libre, con el paisaje como testigo y el sonido del bosque como banda sonora. Un escenario que ningún salón puede replicar.', image: ASSETS.VOTOS, alt: 'Ceremonia al aire libre entre cafetales' },
+            { number: '02', title: 'La ceremonia', description: 'Al aire libre, con el paisaje como testigo y el sonido del bosque como banda sonora. Un escenario que ningún salón puede replicar.', image: ASSETS.VOTOS, alt: 'Ceremonia al aire libre entre cafetales', objectPosition: 'center 60%' },
             { number: '03', title: 'Cóctel al atardecer', description: 'Brinda entre cafetales con coctelería artesanal y música en vivo, mientras la montaña se tiñe de dorado.', image: ASSETS.ABRAZO_DORADA, alt: 'Cóctel al atardecer en la finca' },
             { number: '04', title: 'Cena de origen', description: 'Un banquete inspirado en ingredientes frescos y locales, servido en espacios que se integran con el entorno natural.', image: ASSETS.MESA_RECEPCION, alt: 'Cena farm-to-table en la recepción' },
             { number: '05', title: 'Celebración & Recuerdos', description: 'Risas, abrazos y celebración en un ambiente íntimo, donde cada recuerdo se vive sin prisa.', image: ASSETS.SALIDA_CONFETI, alt: 'Celebración con confeti' },
@@ -345,6 +345,7 @@ function ExperiencesSection() {
                   src={step.image}
                   alt={step.alt}
                   className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-500"
+                  style={step.objectPosition ? { objectPosition: step.objectPosition } : undefined}
                   loading="lazy"
                 />
               </div>
