@@ -346,9 +346,9 @@ function ExperiencesSection() {
         {/* Overlay image */}
         <div className="mt-12 rounded-3xl overflow-hidden shadow-xl relative">
           <img
-            src={ASSETS.ABRAZO_DORADA}
-            alt="Pareja en la hora dorada en La Palma & El Tucán"
-            className="w-full h-64 sm:h-80 object-cover object-top"
+            src={ASSETS.PAREJA_ARCOIRIS}
+            alt="Pareja en la finca cafetera La Palma & El Tucán con arcoíris de fondo"
+            className="w-full h-64 sm:h-80 object-cover object-center"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/80 to-transparent flex items-center">
