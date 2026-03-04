@@ -13,7 +13,6 @@ import {
   STATS,
   CABIN_FEATURES,
   PERFECT_FOR,
-  EXPERIENCES,
   DISTANCE_POINTS,
   PRIVACY_POINTS,
   FAQ_ITEMS,
@@ -165,16 +164,15 @@ function CabinSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-brand-pink font-semibold tracking-widest uppercase text-sm mb-3">
-            Sobre nuestros espacios
+            Espacios
           </p>
           <h2
             id="cabanas-titulo"
             className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3"
           >
-            Una celebración pensada para sentirse, no solo vivirse
+            Espacios que se integran con la naturaleza
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto mb-4">Diseñamos contigo cada momento para que vivas una celebración íntima, auténtica y sin preocupaciones.</p>
-          <p className="font-serif text-brand-dark text-xl font-medium italic">El lujo aquí no es exceso.<br />Es espacio, silencio y naturaleza.</p>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">Rincones entre cafetales, montañas y bosque de niebla donde cada celebración se vive en armonía con el entorno.</p>
         </div>
 
         {/* Main content */}
@@ -323,25 +321,35 @@ function ExperiencesSection() {
             id="experiencias-titulo"
             className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3"
           >
-            Una celebración pensada para sentirse, no solo vivirse
+            La experiencia de tu matrimonio
           </h2>
-          <p className="text-gray-500 text-lg">Diseñamos contigo cada momento para que vivas una celebración íntima, auténtica y sin preocupaciones.</p>
+          <p className="text-gray-500 text-lg">Cada momento fluye en armonía con la naturaleza, creando una celebración auténtica e inolvidable.</p>
         </div>
 
-        {/* Experience cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EXPERIENCES.map((exp, i) => (
-            <article
-              key={exp.title}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-brand-beige/40 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
-              style={{ transitionDelay: `${i * 60}ms` }}
+        {/* Journey steps */}
+        <div className="max-w-3xl mx-auto space-y-8">
+          {[
+            { number: '01', title: 'Preparativos entre cafetales', description: 'Comienza el día en cabañas privadas rodeadas de bosque y montaña. Calma, luz natural y la emoción compartida antes del gran momento.' },
+            { number: '02', title: 'La ceremonia', description: 'Al aire libre, con el paisaje como testigo y el sonido del bosque como banda sonora. Un escenario que ningún salón puede replicar.' },
+            { number: '03', title: 'Cóctel al atardecer', description: 'Brinda entre cafetales con coctelería artesanal y música en vivo, mientras la montaña se tiñe de dorado.' },
+            { number: '04', title: 'Cena de origen', description: 'Un banquete inspirado en ingredientes frescos y locales, servido en espacios que se integran con el entorno natural.' },
+            { number: '05', title: 'Celebración & Recuerdos', description: 'Risas, abrazos y celebración en un ambiente íntimo, donde cada recuerdo se vive sin prisa.' },
+          ].map((step, i) => (
+            <div
+              key={step.number}
+              className="flex gap-6 items-start group"
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="text-4xl mb-4">{exp.icon}</div>
-              <h3 className="font-serif text-lg font-semibold text-brand-dark mb-2 group-hover:text-brand-pink transition-colors duration-200">
-                {exp.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{exp.description}</p>
-            </article>
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-brand-pink/10 border-2 border-brand-pink/30 flex items-center justify-center group-hover:bg-brand-pink group-hover:border-brand-pink transition-all duration-300">
+                <span className="font-serif text-lg font-bold text-brand-pink group-hover:text-white transition-colors duration-300">{step.number}</span>
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-brand-dark mb-1 group-hover:text-brand-pink transition-colors duration-200">
+                  {step.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            </div>
           ))}
         </div>
 

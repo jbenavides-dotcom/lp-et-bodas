@@ -72,12 +72,12 @@ export const STATS: Stat[] = [
 
 // ─── Cabin Features (wedding inclusions) ──────────────────────────────────────
 export const CABIN_FEATURES: CabinFeature[] = [
-  { text: 'Ceremonia al aire libre en los cafetales o el jardín' },
-  { text: 'Recepción y cóctel con vista a la montaña' },
-  { text: 'Gastronomía de origen con ingredientes frescos de la finca' },
-  { text: 'Alojamiento para parejas e invitados en cabañas privadas' },
-  { text: 'Ambientación personalizada en armonía con el entorno natural' },
-  { text: 'Café de especialidad (Gesha, Sidra, Mokka) como experiencia diferenciadora' },
+  { text: 'Ceremonia al aire libre — Escenarios naturales con vista a montañas y cafetales, donde el paisaje es parte del "sí, acepto".' },
+  { text: 'Recepción hasta 40 personas — Espacios íntimos que permiten compartir con calma y cercanía.' },
+  { text: 'Música en vivo & DJ — Desde un atardecer acústico hasta una celebración bajo las estrellas.' },
+  { text: 'Gastronomía de origen — Propuesta elaborada con ingredientes frescos y locales, inspirada en nuestra huerta.' },
+  { text: 'Cabañas privadas — Alojamiento entre cafetales para que la celebración continúe todo el fin de semana.' },
+  { text: 'Entorno natural único — Bosque de niebla y finca cafetera reconocida mundialmente como marco de tu historia.' },
 ];
 
 export const PERFECT_FOR: PerfectForItem[] = [
