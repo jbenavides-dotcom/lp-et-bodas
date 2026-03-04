@@ -49,19 +49,19 @@ export const NAV_LINKS: NavLink[] = [
 // ─── Stats Bar ────────────────────────────────────────────────────────────────
 export const STATS: Stat[] = [
   {
-    value: '5 ha',
-    label: 'Finca privada',
-    sublabel: 'Ceremonia al aire libre',
+    value: 'Hasta 40',
+    label: 'Invitados',
+    sublabel: 'Bodas íntimas y exclusivas',
   },
   {
-    value: '150',
-    label: 'Invitados máx.',
-    sublabel: 'Bodas íntimas o grandes',
+    value: '20',
+    label: 'Cabañas privadas',
+    sublabel: 'Para alojar a tus invitados',
   },
   {
-    value: '100%',
-    label: 'Personalizable',
-    sublabel: 'Tu boda, tu estilo',
+    value: '90 min',
+    label: 'Desde Bogotá',
+    sublabel: 'Acceso fácil en carro',
   },
   {
     value: '☕',
@@ -141,7 +141,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: '¿Cuántos invitados puede recibir la finca para una boda?',
     answer:
-      'La Palma & El Tucán puede recibir hasta 150 invitados para bodas al aire libre. También realizamos celebraciones íntimas desde 20 personas. Nuestros espacios se adaptan al tamaño de tu celebración.',
+      'La Palma & El Tucán está pensada para bodas íntimas y exclusivas de hasta 40 personas. Un espacio donde cada invitado hace parte real del momento, sin aglomeraciones. La finca cuenta con 20 cabañas privadas para alojar a la pareja y los invitados durante todo el fin de semana.',
   },
   {
     question: '¿Qué incluye el paquete de boda?',
