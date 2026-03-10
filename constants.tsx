@@ -49,14 +49,14 @@ export const NAV_LINKS: NavLink[] = [
 // ─── Stats Bar ────────────────────────────────────────────────────────────────
 export const STATS: Stat[] = [
   {
-    value: 'Hasta 40',
-    label: 'Invitados',
-    sublabel: 'Bodas íntimas y exclusivas',
+    value: '9.5/10',
+    label: 'Booking',
+    sublabel: 'Calificación de huéspedes',
   },
   {
-    value: '20',
-    label: 'Cabañas privadas',
-    sublabel: 'Para alojar a tus invitados',
+    value: '5.0/5',
+    label: 'TripAdvisor',
+    sublabel: '#1 en Zipacón',
   },
   {
     value: '90 min',

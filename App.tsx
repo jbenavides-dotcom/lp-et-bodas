@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp, MapPin, Clock, Mountain, Wifi } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight, MapPin, Clock, Mountain, Wifi } from 'lucide-react';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -48,7 +48,7 @@ function StatsBar() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-serif text-3xl sm:text-4xl font-bold text-brand-gold mb-1">
+              <div className="font-serif text-3xl sm:text-4xl text-brand-gold mb-1">
                 {stat.value}
               </div>
               <div className="text-white font-semibold text-sm sm:text-base mb-0.5">
@@ -100,7 +100,7 @@ function SearchSection() {
             </p>
             <h2
               id="espacios-titulo"
-              className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-5"
+              className="font-serif text-3xl sm:text-4xl text-brand-dark mb-5"
             >
               ¿Por qué elegir La Palma &amp; El Tucán?
             </h2>
@@ -168,7 +168,7 @@ function CabinSection() {
           </p>
           <h2
             id="cabanas-titulo"
-            className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3"
+            className="font-serif text-3xl sm:text-4xl text-brand-dark mb-3"
           >
             Espacios que se integran con la naturaleza
           </h2>
@@ -319,7 +319,7 @@ function ExperiencesSection() {
           </p>
           <h2
             id="experiencias-titulo"
-            className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3"
+            className="font-serif text-3xl sm:text-4xl text-brand-dark mb-3"
           >
             La experiencia de tu matrimonio
           </h2>
@@ -352,7 +352,7 @@ function ExperiencesSection() {
               {/* Text */}
               <div className={`flex gap-5 items-start ${i % 2 === 1 ? 'md:order-1' : ''}`}>
                 <div className="flex-shrink-0 w-14 h-14 rounded-full bg-brand-pink flex items-center justify-center shadow-lg shadow-brand-pink/30">
-                  <span className="font-serif text-lg font-bold text-white">{step.number}</span>
+                  <span className="font-serif text-lg text-white">{step.number}</span>
                 </div>
                 <div>
                   <h3 className="font-serif text-xl sm:text-2xl font-semibold text-brand-dark mb-2">
@@ -378,7 +378,7 @@ function ExperiencesSection() {
               <p className="text-brand-gold font-semibold text-sm uppercase tracking-widest mb-3">
                 Un escenario natural e íntimo
               </p>
-              <p className="font-serif text-white text-xl font-bold leading-snug mb-3">
+              <p className="font-serif text-white text-xl leading-snug mb-3">
                 Tu celebración en armonía con la naturaleza
               </p>
               <p className="text-white/80 text-sm leading-relaxed mb-2">
@@ -398,24 +398,79 @@ function ExperiencesSection() {
 // ─── Reviews Section ──────────────────────────────────────────────────────────
 function ReviewsSection() {
   const { ref, isVisible } = useScrollReveal();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pauseRef = useRef(false);
 
   const REVIEWS = [
     {
       text: 'Fue el matrimonio de nuestros sueños. Las montañas, los cafetales, el atardecer... todo fue absolutamente mágico. Nuestros invitados aún hablan de esa noche.',
       stars: 5,
       label: 'Boda para 35 invitados',
+      source: 'Booking' as const,
     },
     {
       text: 'Elegimos La Palma & El Tucán porque queríamos algo diferente, y superó todas nuestras expectativas. La comida, la decoración, el servicio... cada detalle fue perfecto.',
       stars: 5,
       label: 'Boda para 30 invitados',
+      source: 'TripAdvisor' as const,
     },
     {
       text: 'Nuestros invitados llegaron desde Bogotá y quedaron impresionados con el lugar. Las cabañas entre cafetales, la ceremonia al aire libre, la fiesta bajo las estrellas. Inolvidable.',
       stars: 5,
       label: 'Destination wedding',
+      source: 'Booking' as const,
+    },
+    {
+      text: 'Cada rincón de la finca fue parte de nuestra celebración. La ceremonia entre cafetales, el cóctel al atardecer, la cena bajo las estrellas. Un lugar que no necesita decoración.',
+      stars: 5,
+      label: 'Boda íntima',
+      source: 'TripAdvisor' as const,
+    },
+    {
+      text: 'Buscábamos un venue con alma, no un salón genérico. La Palma & El Tucán fue exactamente eso: un lugar con historia, con naturaleza y con un equipo que hizo todo posible.',
+      stars: 5,
+      label: 'Boda para 25 invitados',
+      source: 'Booking' as const,
+    },
+    {
+      text: 'La gastronomía fue espectacular. Ingredientes frescos, presentación impecable y el café de especialidad como cierre perfecto. Nuestros invitados quedaron encantados.',
+      stars: 5,
+      label: 'Boda gastronómica',
+      source: 'TripAdvisor' as const,
     },
   ];
+
+  const totalPages = Math.ceil(REVIEWS.length / 3);
+
+  const startAutoplay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      if (!pauseRef.current) {
+        setCurrentIndex((prev) => (prev + 1) % totalPages);
+      }
+    }, 5000);
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, [totalPages]);
+
+  const handleInteraction = (newIndex: number) => {
+    pauseRef.current = true;
+    setCurrentIndex(newIndex);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setTimeout(() => {
+      pauseRef.current = false;
+      startAutoplay();
+    }, 8000);
+  };
+
+  const goNext = () => handleInteraction((currentIndex + 1) % totalPages);
+  const goPrev = () => handleInteraction((currentIndex - 1 + totalPages) % totalPages);
+
+  const visibleReviews = REVIEWS.slice(currentIndex * 3, currentIndex * 3 + 3);
 
   return (
     <section
@@ -431,7 +486,7 @@ function ReviewsSection() {
           </p>
           <h2
             id="resenas-titulo"
-            className="font-serif text-3xl sm:text-4xl font-bold text-white"
+            className="font-serif text-3xl sm:text-4xl text-white"
           >
             Historias que comenzaron entre cafetales
           </h2>
@@ -444,7 +499,7 @@ function ReviewsSection() {
                 </svg>
               ))}
             </div>
-            <span className="text-white font-bold text-lg">5</span>
+            <span className="text-white text-lg">5</span>
             <span className="text-white/50 text-sm">/ 5</span>
           </div>
         </div>
@@ -454,33 +509,73 @@ function ReviewsSection() {
           Parejas que celebraron en La Palma &amp; El Tucán y vivieron una experiencia inolvidable.
         </p>
 
-        {/* Reviews grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {REVIEWS.map((review, i) => (
-            <article
-              key={i}
-              className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors duration-200"
-            >
-              {/* Stars */}
-              <div className="flex gap-0.5">
-                {[...Array(review.stars)].map((_, j) => (
-                  <svg key={j} className="w-4 h-4 text-brand-gold" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              {/* Quote */}
-              <p className="text-white/80 text-sm leading-relaxed flex-1 italic">
-                "{review.text}"
-              </p>
-              {/* Label */}
-              {review.label && (
-                <p className="text-brand-gold/70 text-xs font-medium uppercase tracking-wide">
-                  {review.label}
+        {/* Carousel container */}
+        <div className="relative">
+          {/* Navigation arrows */}
+          <button
+            onClick={goPrev}
+            className="absolute -left-4 lg:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-200"
+            aria-label="Reseñas anteriores"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={goNext}
+            className="absolute -right-4 lg:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-200"
+            aria-label="Siguientes reseñas"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          {/* Reviews grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visibleReviews.map((review, i) => (
+              <article
+                key={currentIndex * 3 + i}
+                className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors duration-200"
+              >
+                {/* Source badge */}
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-0.5">
+                    {[...Array(review.stars)].map((_, j) => (
+                      <svg key={j} className="w-4 h-4 text-brand-gold" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/10 text-white/60">
+                    {review.source}
+                  </span>
+                </div>
+                {/* Quote */}
+                <p className="text-white/80 text-sm leading-relaxed flex-1 italic">
+                  "{review.text}"
                 </p>
-              )}
-            </article>
-          ))}
+                {/* Label */}
+                {review.label && (
+                  <p className="text-brand-gold/70 text-xs font-medium uppercase tracking-wide">
+                    {review.label}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+
+          {/* Dot pagination */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => handleInteraction(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  i === currentIndex
+                    ? 'bg-brand-pink w-6'
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+                aria-label={`Página ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -504,7 +599,7 @@ function DistanceSection() {
           </p>
           <h2
             id="ubicacion-titulo"
-            className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark"
+            className="font-serif text-3xl sm:text-4xl text-brand-dark"
           >
             Lejos del ruido. Cerca de todo.
           </h2>
@@ -623,7 +718,7 @@ function UrgencySection() {
 
         <h2
           id="urgencia-titulo"
-          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+          className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-6 leading-tight"
         >
           Las fechas más deseadas{' '}
           <span className="text-brand-pink italic">se reservan con meses de anticipación</span>
@@ -692,7 +787,7 @@ function FaqSection() {
           </p>
           <h2
             id="faq-titulo"
-            className="font-serif text-3xl sm:text-4xl font-bold text-brand-dark"
+            className="font-serif text-3xl sm:text-4xl text-brand-dark"
           >
             Preguntas frecuentes
           </h2>
@@ -780,7 +875,7 @@ function CtaFinal() {
 
         <h2
           id="cta-titulo"
-          className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4"
+          className="font-serif text-4xl sm:text-5xl text-white mb-4"
         >
           Hagamos realidad el matrimonio de sus sueños
         </h2>
